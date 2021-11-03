@@ -22,7 +22,7 @@ public class MongoKotlockProvider(
     private val client: MongoClient,
     private val databaseName: String = "kotlock",
     private val collectionName: String = "kotlocks",
-) : KotlockProvider {
+) : KotlockProvider() {
     private companion object {
         private const val idField: String = "_id"
         private const val lockedUntilField: String = "lockedUntil"

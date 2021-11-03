@@ -14,7 +14,7 @@ public class ExposedKotlockProvider(
     private val db: Database? = null,
     private val context: CoroutineDispatcher? = null,
     private val transactionIsolation: Int? = null,
-) : KotlockProvider {
+) : KotlockProvider() {
     override suspend fun tryLock(challenger: KotlockChallenger): KotlockResult {
         return runCatching {
             val now = Instant.now()

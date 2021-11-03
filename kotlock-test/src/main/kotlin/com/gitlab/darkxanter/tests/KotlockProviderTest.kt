@@ -3,7 +3,6 @@
 package com.gitlab.darkxanter.tests
 
 import com.github.darkxanter.KotlockProvider
-import com.github.darkxanter.withLock
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
