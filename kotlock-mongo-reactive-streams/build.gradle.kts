@@ -6,7 +6,7 @@ dependencies {
     val kotlinxCoroutinesVersion: String by project
     val mongodbVersion: String by project
 
-    implementation(projects.kotlockCore)
+    api(projects.kotlockCore)
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactive:$kotlinxCoroutinesVersion")

@@ -5,7 +5,7 @@ plugins {
 dependencies {
     val exposedVersion: String by project
 
-    implementation(projects.kotlockCore)
+    api(projects.kotlockCore)
 
     implementation("org.jetbrains.exposed:exposed-core:$exposedVersion")
     implementation("org.jetbrains.exposed:exposed-jdbc:$exposedVersion")
