@@ -4,6 +4,8 @@ allprojects {
     }
 }
 
+println("version $version")
+
 //subprojects {
 //    apply(plugin = "kotlin")
 //    apply(plugin = "java-library")
