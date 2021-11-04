@@ -10,6 +10,7 @@ val javaVersion = JavaVersion.VERSION_11
 
 java {
     withSourcesJar()
+//    withJavadocJar()
     sourceCompatibility = javaVersion
     targetCompatibility = javaVersion
 }
