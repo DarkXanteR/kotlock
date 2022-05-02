@@ -71,12 +71,11 @@ publishing {
 
             pom {
                 name.set("Kotlock")
-//                description.set("Kotlin/JVM coroutine-based distributed locks.")
                 afterEvaluate {
                     this@pom.description.set(project.description)
                 }
+                url.set("https://github.com/darkxanter/kotlock")
 
-                description.set(project.description)
                 licenses {
                     license {
                         name.set("MIT")
