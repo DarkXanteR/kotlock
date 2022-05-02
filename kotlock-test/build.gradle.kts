@@ -2,6 +2,8 @@ plugins {
     id("com.github.darkxanter.library-convention")
 }
 
+description = "Kotlock test utils"
+
 dependencies {
     val logbackVersion: String by project
     val kotlinxCoroutinesVersion: String by project

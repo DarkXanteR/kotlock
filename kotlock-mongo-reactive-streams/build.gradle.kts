@@ -2,6 +2,8 @@ plugins {
     id("com.github.darkxanter.library-convention")
 }
 
+description = "Kotlock MongoDB reactive streams provider"
+
 dependencies {
     val kotlinxCoroutinesVersion: String by project
     val mongodbVersion: String by project

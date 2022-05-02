@@ -5,13 +5,7 @@ Like `ShedLock` but kotlin-first.
 
 ## Distribution
 
-Available from `jitpack.io`:
-
-```kotlin
-repositories {
-    maven { setUrl("https://jitpack.io") }
-}
-```
+Available from maven central.
 
 ## Usage
 
@@ -28,7 +22,7 @@ CREATE TABLE kotlocks(name VARCHAR(64) NOT NULL, lock_until TIMESTAMPTZ NOT NULL
 Add dependency
 ```kotlin
 dependencies {
-    implementation("com.github.darkxanter:kotlock-sql-exposed:$kotlockVersion")
+    implementation("io.github.darkxanter:kotlock-sql-exposed:$kotlockVersion")
 }
 ```
 
@@ -36,6 +30,6 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("com.github.darkxanter:kotlock-mongo-reactive-streams:$kotlockVersion")
+    implementation("io.github.darkxanter:kotlock-mongo-reactive-streams:$kotlockVersion")
 }
 ```

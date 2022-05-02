@@ -114,3 +114,5 @@ gradle-app.setting
 
 /.idea/compiler.xml
 /.idea/runConfigurations.xml
+/.idea/jarRepositories.xml
+/.idea/kotlinc.xml

@@ -18,6 +18,6 @@ pluginManagement {
 
     plugins {
         kotlin("jvm") version kotlinVersion
+        id("org.jetbrains.dokka") version kotlinVersion
     }
 }
-
