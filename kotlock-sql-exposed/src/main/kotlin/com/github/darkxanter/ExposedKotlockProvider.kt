@@ -14,13 +14,14 @@ public class ExposedKotlockProvider(
     private val db: Database? = null,
     private val context: CoroutineDispatcher? = null,
     private val transactionIsolation: Int? = null,
+    public val table: KotlockTable = KotlockTable(),
 ) : KotlockProvider() {
     override suspend fun tryLock(challenger: KotlockChallenger): KotlockResult {
         return runCatching {
             val now = Instant.now()
             val insertedCount = newSuspendedTransaction(db = db, context = context, transactionIsolation = transactionIsolation) {
-                val result = KotlockTable.upsert({
-                    KotlockTable.lockUntil less now and (KotlockTable.name eq challenger.name)
+                val result = table.upsert({
+                    table.lockUntil less now and (table.name eq challenger.name)
                 }) {
                     it[lockUntil] = challenger.lockUntil.toInstant()
                     it[lockedAt] = Instant.now()
@@ -40,8 +41,8 @@ public class ExposedKotlockProvider(
 
     override suspend fun release(kotlock: Kotlock) {
         newSuspendedTransaction(db = db, context = context, transactionIsolation = transactionIsolation) {
-            KotlockTable.update ({
-                KotlockTable.lockedBy eq kotlock.lockedBy and (KotlockTable.name eq kotlock.name)
+            table.update ({
+                table.lockedBy eq kotlock.lockedBy and (table.name eq kotlock.name)
             }) {
                 it[lockUntil] = kotlock.lockedUntil.toInstant()
             }

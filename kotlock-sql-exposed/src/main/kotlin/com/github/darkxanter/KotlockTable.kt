@@ -1,15 +1,17 @@
 package com.github.darkxanter
 
+import org.jetbrains.exposed.sql.Column
 import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.javatime.timestamp
+import java.time.Instant
 
-internal object KotlockTable: Table("kotlocks") {
-    val name = varchar("name", 64)
-    val lockUntil = timestamp("lock_until")
-    val lockedAt = timestamp("locked_at")
-    val lockedBy = varchar("locked_by", 255)
+public open class KotlockTable(tableName: String = "kotlocks"): Table(tableName) {
+    public val name: Column<String> = text("name")
+    public val lockUntil: Column<Instant> = timestamp("lock_until")
+    public val lockedAt: Column<Instant> = timestamp("locked_at")
+    public val lockedBy: Column<String> = text("locked_by")
 
-    override val primaryKey = PrimaryKey(name)
+    public override val primaryKey: PrimaryKey = PrimaryKey(name)
 }
 
 //CREATE TABLE kotlocks(name VARCHAR(64) NOT NULL, lock_until TIMESTAMPTZ NOT NULL,

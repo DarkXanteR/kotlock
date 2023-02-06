@@ -28,8 +28,8 @@ class ExposedKotlockProviderTest : KotlockProviderTest() {
     fun connect() {
         Database.connect("jdbc:postgresql://localhost:5432/test", user = "postgres", password = "postgres")
         transaction {
-            SchemaUtils.drop(KotlockTable)
-            SchemaUtils.createMissingTablesAndColumns(KotlockTable)
+            SchemaUtils.drop(kotlockProvider.table)
+            SchemaUtils.createMissingTablesAndColumns(kotlockProvider.table)
         }
     }
 
